@@ -24,7 +24,7 @@ elif question =='y':
             if question3 =='1':
                 whole_file = file2.read
                 print(whole_file)
-            elif question3 =='2':
+            elif question3 =='2':# this part is not working
                 line_number= input("please enter your line number")
                 lines = file2.readlines()
                 lines_lenght = len(lines)
