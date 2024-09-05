@@ -49,3 +49,41 @@ while 1:
             operation.divide()
     else:
         print("you entered wrong value")
+#ver2 starts from here its dinamic version
+
+def addition(a,b):
+    return a+b
+def subtract(a,b):
+    return a-b
+def multiple(a,b):
+    return a*b
+def divide(a,b):
+    if b == 0:
+        return "unable to do"
+    return a / b
+def calculator():
+    answer = int(input("enter the number: "))
+    while 1:
+        print("choose the operation you wanted to do:")
+        print("addition (+)")
+        print("subtract (-)")
+        print("multiplication (*)")
+        print("division (/)")
+        print("İşlemi bitirmek için 'q' yazın.")
+
+        operation = input("Seçiminiz (+|-|/|*|q): ").lower()
+        if operation =='q':
+            print(f"{answer}")
+            break
+        else:
+            number = int(input("enter the number: "))
+
+            if operation =='+':
+                answer = addition(answer,number)
+            if operation =='-':
+                answer = subtract(answer,number)
+            if operation =='*':
+                answer = multiple(answer,number)
+            if operation =='/':
+                answer = divide(answer,number)
+calculator()
