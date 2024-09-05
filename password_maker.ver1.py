@@ -21,3 +21,5 @@ for i in range(long):
     password = password + randomaze_symbol
 
 print(password)
+
+#WARNİNG: last letter you give will be extra and not used in the password
