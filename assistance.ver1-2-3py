@@ -1,4 +1,5 @@
 from googletrans import Translator
+import math
 def asistan(command):
     if command=="date":
         date()
@@ -6,6 +7,12 @@ def asistan(command):
         time()
     elif command =="adding":
         adding_note()
+    elif command =="translate":
+        translatoR()
+    elif command =="calculator":
+          calculator()
+    else:
+          print("wring command try again")
 
 def date():
     from datetime import datetime
@@ -23,7 +30,6 @@ def adding_note():
     with open(f"{name}.txt","w") as file:
         print("you can write now (if you want to quit press enter)")
         file.write(input())
-
 def translatoR():
     translator = Translator()
     text = input("Please enter what you want to translate: ")
@@ -34,6 +40,25 @@ def translatoR():
         print(f"Translation ({text})={language}:{answer.text}")
     except Exception as e:
         print(f"An error occurred: {e}")
+
+def calculator():
+    operator = input("please enter an operation(e.g factorial/sin/square): ")
+    number = input("enter the number: ")
+    if operator == "factorial":
+        print(f"answer is {math.factorial(int(number))}")
+    elif operator=="square-root":
+                print(f"answer is {math.sqrt(int(number))}")
+    elif operator =="square":
+                print(f"answer is {math.exp2(int(number))}")
+    elif operator =="sin":
+                print(f"answer is {math.sin(math.radians(int(number)))}")
+    elif operator =="tan":
+                print(f"answer is {math.tan(math.radians(int(number)))}")
+    elif operator =="cos":
+                print(f"answer is {math.cos(math.radians(int(number)))}")
+    else:
+          print("operation is not found")
+
 
 print("welcome to the asistane bot")
 while 1:
