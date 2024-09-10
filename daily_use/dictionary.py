@@ -3,18 +3,6 @@ from tkinter import messagebox
 
 sözlük ={}
 
-# Sözlüğü dosyadan yükleme fonksiyonu
-def load_sözlük():
-    try:
-        with open("dictionary1.txt", "r") as file:
-            for line in file:
-                if ": " in line:
-                    k, a = line.strip().split(": ", 1)
-                    sözlük[k] = a
-    except FileNotFoundError:
-        # Dosya yoksa boş sözlük ile devam et
-        pass
-
 # Tkinter pencere oluşturma
 root = tk.Tk()
 root.title("Python Sözlük Uygulaması")
