@@ -3,6 +3,7 @@ from tkinter import messagebox
 
 sözlük ={}
 
+
 # Tkinter pencere oluşturma
 root = tk.Tk()
 root.title("Python Sözlük Uygulaması")
@@ -34,6 +35,14 @@ anlam_label2.grid(row=1, column=4)
 anlam_entry2 = tk.Entry(root, fg="white",bg="blue")
 anlam_entry2.grid(row=1, column=5)
 
+#boşluk ekleme
+kelime_label3 = tk.Label(root, text="konu başliği:", fg="blue",bg="red")
+kelime_label3.grid(row=2, column=3)
+
+kelime_entry3 = tk.Entry(root, fg="blue",bg="red")
+kelime_entry3.grid(row=3, column=3)
+
+
 # Kelime ekleme fonksiyonu
 def kelime_ekle():
     kelime = kelime_entry.get()
@@ -47,7 +56,17 @@ def kelime_ekle():
             file.write(f"{kelime}: {anlam}\n")
     else:
         messagebox.showwarning("Uyarı", "Lütfen tüm alanları doldurun!")
-    
+# Kelime ekleme fonksiyonu
+def Boşluk_ekle():
+    kelime = kelime_entry3.get()
+
+    if kelime :
+        messagebox.showinfo("Başarılı", "Kelime başarıyla eklendi!")
+        # Sözlüğü metin formatında dosyaya ekleme
+        with open("dictionary.txt", "a") as file:
+            file.write(f"{kelime}\n")
+    else:
+        messagebox.showwarning("Uyarı", "Lütfen tüm alanları doldurun!")   
 # Kelime arama fonksiyonu
 def kelime_ara():
     kelime = kelime_entry2.get()
@@ -65,6 +84,10 @@ def kelime_ara():
 # Kelime ekle butonu
 ekle_button = tk.Button(root, text="Kelime Ekle", command=kelime_ekle, fg="blue",bg="pink")
 ekle_button.grid(row=2, column=0, columnspan=2)
+
+#boşluk ekle butonu
+boşluk_button = tk.Button(root, text="Yapiştir gelsin", command=Boşluk_ekle, fg="blue",bg="red")
+boşluk_button.grid(row=4, column=2, columnspan=2)
 
 # Kelime ara butonu
 ara_button = tk.Button(root, text="Kelime Ara", command=kelime_ara, fg="white",bg="blue")
