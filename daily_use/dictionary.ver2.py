@@ -72,11 +72,12 @@ def kelime_ara():
     kelime = kelime_entry2.get()
     with open("dictionary.txt", "r") as file:
         for line in file:
-            k, a = line.strip().split(": ", 1)
-            if k == kelime:
-                anlam_entry2.delete(0, tk.END)
-                anlam_entry2.insert(0, a)
-                return
+            if ":" in line:  # Check if the line contains the expected delimiter
+                k, a = line.strip().split(": ", 1)
+                if k == kelime:
+                    anlam_entry2.delete(0, tk.END)
+                    anlam_entry2.insert(0, a)
+                    return
     messagebox.showerror("Hata", "Anlam bulunamadı!")
 
 
